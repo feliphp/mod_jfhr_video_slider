@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1.0" client="site" method="upgrade">
+	<name>JFHR VIDEO SLIDER</name>
+	<author>JOSE FELIPE HERRERA R / F</author>
+	<version>1.0.0</version>
+	<description>A simple Video Slider JFHR module</description>
+	<files>
+		<filename>mod_jfhr_video_slider.xml</filename>
+		<filename module="mod_jfhr_video_slider">mod_jfhr_video_slider.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>tmpl/uno.php</filename>
+		<filename>tmpl/index.html</filename>
+		<folder>language</folder>
+		<folder>themes</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!-- Campo Selector de Categoría -->
+				<field name="video_slide_title" type="sql" default="1"
+					label="Select Category:"
+					query="SELECT id AS value, title AS video_slide_title FROM #__categories" />
+				<!-- Campo de Anchura del Slider -->
+				<field name="video_slide_width" type="text" default="30%"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_WIDTH" description="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_WIDTH_DESC" />
+				<!-- Campo de Altura del Slider -->
+				<field name="video_slide_height" type="text" default="10%"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_HEIGHT" description="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_HEIGHT_DESC" />
+				<!-- Campo de Anchura de la imagen del Slider en pixeles -->
+				<field name="video_img_slide_width" type="text" default="260"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_IMG_SLIDE_WIDTH" description="MOD_JFHR_VIDEO_SLIDER_FIELD_IMG_SLIDE_WIDTH_DESC" />
+				<!-- Campo de Altura de la imagen del Slider en pixeles -->
+				<field name="video_img_slide_height" type="text" default="130"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_IMG_SLIDE_HEIGHT" description="MOD_JFHR_VIDEO_SLIDER_FIELD_IMG_SLIDE_HEIGHT_DESC" />
+				<!-- Campo de Anchura del Modal Shadow de Video -->
+				<field name="video_modal_width" type="text" default="800"
+					label="MOD_JFHR_VIDEO_MODAL_FIELD_WIDTH" description="MOD_JFHR_VIDEO_MODAL_FIELD_WIDTH_DESC" />
+				<!-- Campo de Altura del Modal Shadow de Video -->
+				<field name="video_modal_height" type="text" default="450"
+					label="MOD_JFHR_VIDEO_MODAL_FIELD_HEIGHT" description="MOD_JFHR_VIDEO_MODAL_FIELD_HEIGHT_DESC" />
+				<!-- Campo de Velocidad del Slider -->
+				<field name="video_slide_time" type="text" default="5000"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_TIME" description="MOD_JFHR_VIDEO_SLIDER_FIELD_SLIDE_TIME_DESC" />
+				<!-- Campo Para Respetar Permisos de Visualización -->
+				<field name="video_slide_enabled_permissions" type="radio"
+					class="btn-group btn-group-yesno" default="1"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_PERMISSIONS_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_PERMISSIONS">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo de Mostrar Controles -->
+				<field name="enabled_youtube_tbuttons" type="radio"
+					class="btn-group btn-group-yesno" default="0"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_BUTTONS_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_BUTTONS">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo de Ordenamiento Por Fecha -->
+				<field name="video_slide_order_date" type="radio"
+					class="btn-group btn-group-yesno" default="0"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ORDER_DATE_DESC" label="MOD_JFHR_VIDEO_SLIDER_FIELD_ORDER_DATE">
+					<option value="ASC">ASC</option>
+					<option value="DESC">DESC</option>
+				</field>
+
+				<!-- Campo para Seleccionar Autoplay de Youtube -->
+				<field name="enabled_youtube_autoplay" type="radio"
+					class="btn-group btn-group-yesno" default="1"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_AUTOPLAY_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_AUTOPLAY">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo para mostrar información y título de Youtube -->
+				<field name="enabled_youtube_shadow_title" type="radio"
+					class="btn-group btn-group-yesno" default="0"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_SHADOW_TITLE_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YYOUTUBE_SHADOW_TITLE">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo para mostrar controles de Youtube -->
+				<field name="enabled_youtube_shadow_controls" type="radio"
+					class="btn-group btn-group-yesno" default="1"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_SHADOW_CONTROLS_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YYOUTUBE_SHADOW_CONTROLS">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo para mostrar logo de Youtube -->
+				<field name="enabled_youtube_shadow_logo" type="radio"
+					class="btn-group btn-group-yesno" default="0"
+					description="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YOUTUBE_SHADOW_LOGO_DESC"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_ENABLED_YYOUTUBE_SHADOW_LOGO">
+					<option value="0">JOFF</option>
+					<option value="1">JON</option>
+				</field>
+				<!-- Campo de Límite de Videos -->
+				<field name="videos_limit" type="text" default="3"
+					label="MOD_JFHR_VIDEO_SLIDER_FIELD_VIDEO_LIMIT" description="MOD_BC_VIDEO_SLIDER_FIELD_VIDEO_LIMIT_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
